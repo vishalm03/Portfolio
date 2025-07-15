@@ -4,41 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vishal Muniraj | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   <style>
-  .flip-card {
-    perspective: 1000px;
-  }
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 0.5rem; /* matches Tailwind's rounded-lg */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
+    .flip-card { perspective: 1000px; }
+    .flip-card-inner { position: relative; width: 100%; height: 200px; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 0.5rem; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    .flip-card-back { transform: rotateY(180deg); }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300">
   <!-- Header -->
-  <header class="bg-gray-800 shadow-md">
+  <header class="bg-gray-200 dark:bg-gray-800 shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold">Vishal Muniraj</h1>
       <nav>
@@ -49,176 +31,91 @@
           <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="px-3 py-1 rounded bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-white">Toggle Theme</button>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-20 bg-gray-900">
+  <section class="text-center py-20 bg-gray-100 dark:bg-gray-900">
     <h2 class="text-4xl font-extrabold mb-4">Software Developer & Data Engineer</h2>
-    <p class="text-lg text-gray-400 mb-6">Bridging industry experience with academic innovation in AI, data, and software systems.</p>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Bridging industry experience with academic innovation in AI, data, and software systems.</p>
     <a href="#projects" class="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition">View Projects</a>
   </section>
 
   <!-- About -->
   <section id="about" class="py-16 px-6 max-w-4xl mx-auto">
-  <h3 class="text-3xl font-bold mb-4">About Me</h3>
-  <p class="text-gray-300">
-    I'm Vishal Muniraj, a Computer Science graduate student at Saint Louis University, with prior professional experience as a Programmer Analyst at Cognizant. My interests span artificial intelligence, data engineering, machine learning, and full-stack development. 
-    <br><br>
-    I've worked on real-world ETL pipelines, dashboard reporting with Tableau and Cognos, and the design of intelligent agents using techniques like Expectimax, Alpha-Beta pruning, and reinforcement learning. I'm passionate about solving practical problems with scalable, data-driven solutions and love building projects that combine analytical thinking with creativity.
-    <br><br>
-</section>
+    <h3 class="text-3xl font-bold mb-4">About Me</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      I'm Vishal Muniraj, a Computer Science graduate student at Saint Louis University, with prior professional experience as a Programmer Analyst at Cognizant. My interests span artificial intelligence, data engineering, machine learning, and full-stack development.
+      <br><br>
+      I've worked on real-world ETL pipelines, dashboard reporting with Tableau and Cognos, and the design of intelligent agents using techniques like Expectimax, Alpha-Beta pruning, and reinforcement learning. I'm passionate about solving practical problems with scalable, data-driven solutions and love building projects that combine analytical thinking with creativity.
+    </p>
+  </section>
 
-<section id="experience" class="py-16 px-6 max-w-6xl mx-auto">
-  <h3 class="text-3xl font-bold mb-8 text-center">Education & Experience</h3>
-  <div class="grid md:grid-cols-3 gap-8">
-
-    <!-- Flip Card 1: Saint Louis University -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-blue-600 text-white p-6 rounded-lg flex items-center justify-center">
-          <h4 class="text-xl font-bold text-center">Saint Louis University</h4>
-        </div>
-        <div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold mb-2">Master’s in Computer Science</h4>
-          <p>Saint Louis, MO, USA</p>
-          <p>Dec 2025 (expected)</p>
-        </div>
-      </div>
+  <!-- Education & Experience Flip Cards -->
+  <section id="experience" class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold mb-8 text-center">Education & Experience</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front bg-blue-600 text-white p-6 rounded-lg"><h4 class="text-xl font-bold text-center">Saint Louis University</h4></div><div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg"><h4 class="text-xl font-bold mb-2">Master’s in Computer Science</h4><p>Saint Louis, MO, USA</p><p>Dec 2025 (expected)</p></div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front bg-green-600 text-white p-6 rounded-lg"><h4 class="text-xl font-bold text-center">SRM Institute</h4></div><div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg"><h4 class="text-xl font-bold mb-2">Bachelor’s in CSE</h4><p>Chennai, India</p><p>May 2022</p></div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front bg-purple-600 text-white p-6 rounded-lg"><h4 class="text-xl font-bold text-center">Cognizant</h4></div><div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg"><h4 class="text-xl font-bold mb-2">Programmer Analyst Trainee</h4><p>Feb 2022 – Dec 2023</p><p>Worked on ETL pipelines, dashboards, and Agile teams.</p></div></div></div>
     </div>
-
-    <!-- Flip Card 2: SRM University -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-green-600 text-white p-6 rounded-lg flex items-center justify-center">
-          <h4 class="text-xl font-bold text-center">SRM Institute</h4>
-        </div>
-        <div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold mb-2">Bachelor’s in CSE</h4>
-          <p>Chennai, India</p>
-          <p>May 2022</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Flip Card 3: Cognizant -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-purple-600 text-white p-6 rounded-lg flex items-center justify-center">
-          <h4 class="text-xl font-bold text-center">Cognizant</h4>
-        </div>
-        <div class="flip-card-back bg-gray-800 text-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold mb-2">Programmer Analyst Trainee</h4>
-          <p>Feb 2022 – Dec 2023</p>
-          <p>Worked on ETL pipelines, dashboards, and Agile teams.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- Skills -->
-  <section id="skills" class="bg-gray-800 py-16 px-6">
-  <div class="max-w-4xl mx-auto">
-    <h3 class="text-3xl font-bold mb-4 border-b-2 border-blue-400 pb-2">Skills</h3>
-    <ul class="text-gray-300 space-y-2">
-      <li><strong>AI/ML:</strong> TensorFlow, PyTorch, Scikit‑learn, NLP, Reinforcement Learning, Expectimax, Alpha‑Beta</li>
-      <li><strong>Cloud:</strong> AWS (EC2, S3, Lambda, SNS, SQS, CloudFormation, CodePipeline)</li>
-      <li><strong>DevOps:</strong> Docker, Kubernetes, Terraform, GitHub Actions, CI/CD</li>
-      <li><strong>Programming:</strong> Python, Bash, Java, YAML/JSON</li>
-      <li><strong>Tools:</strong> Linux, VS Code, Jenkins, Git</li>
-    </ul>
-  </div>
-</section>
-
+  <section id="skills" class="bg-gray-200 dark:bg-gray-800 py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-4 border-b-2 border-blue-400 pb-2">Skills</h3>
+      <ul class="text-gray-700 dark:text-gray-300 space-y-2">
+        <li><strong>AI/ML:</strong> TensorFlow, PyTorch, Scikit‑learn, NLP, Reinforcement Learning, Expectimax, Alpha‑Beta</li>
+        <li><strong>Cloud:</strong> AWS (EC2, S3, Lambda, SNS, SQS, CloudFormation, CodePipeline)</li>
+        <li><strong>DevOps:</strong> Docker, Kubernetes, Terraform, GitHub Actions, CI/CD</li>
+        <li><strong>Programming:</strong> Python, Bash, Java, YAML/JSON</li>
+        <li><strong>Tools:</strong> Linux, VS Code, Jenkins, Git</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Projects -->
-<section id="projects" class="py-16 px-6 max-w-5xl mx-auto">
-  <h3 class="text-3xl font-bold mb-6">Projects</h3>
+  <section id="projects" class="py-16 px-6 max-w-5xl mx-auto">
+    <h3 class="text-3xl font-bold mb-6">Projects</h3>
 
-  <!-- Project 1 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">2048 AI Agent</h4>
-    <p class="text-gray-400">
-      An Expectimax-based agent enhanced with custom heuristics like snake pattern scoring, corner anchoring,
-      merge potential, and monotonicity. Consistently reaches high scores above 2048.
-    </p>
-    <a href="https://github.com/vishalm03/2048-vishal" class="text-blue-400 underline">View on GitHub</a>
-  </div>
+    <h4 class="text-xl font-bold mt-8 mb-4 border-b border-gray-400 dark:border-gray-600">AI Projects</h4>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">2048 AI Agent</h4><p class="text-gray-700 dark:text-gray-400">An Expectimax-based agent enhanced with custom heuristics like snake pattern scoring, corner anchoring, merge potential, and monotonicity. Consistently reaches high scores above 2048.</p><a href="https://github.com/vishalm03/2048-vishal" class="text-blue-400 underline">View on GitHub</a></div>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">Othello AI Agent</h4><p class="text-gray-700 dark:text-gray-400">A strategic Alpha-Beta agent with deep heuristics for corner control, mobility advantage, and stability. Uses smart move ordering to optimize pruning.</p><a href="https://github.com/vishalm03/othello-ai-agent" class="text-blue-400 underline">View on GitHub</a></div>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">Racecar Agent</h4><p class="text-gray-700 dark:text-gray-400">A reactive, rule-based AI agent using LIDAR sensor data to drive safely through a racetrack, avoiding walls and making speed adjustments in real-time.</p><a href="https://github.com/vishalm03/racecar-vishalm03-2" class="text-blue-400 underline">View on GitHub</a></div>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">Speech Accent Recognition</h4><p class="text-gray-700 dark:text-gray-400">Built a deep learning model using CNNs and NLP techniques to classify speech accents based on audio patterns. Implemented MFCC feature extraction with Librosa and optimized model performance through data augmentation and hyperparameter tuning. Developed a simple interface for real-time accent detection.</p></div>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">AI‑Enhanced Helpdesk Ticketing System</h4><p class="text-gray-700 dark:text-gray-400">Developed an IT support system with NLP‑based ticket classification and routing. Applied generative AI for intelligent recommendations and designed a CI/CD pipeline for deployment and scaling. Implemented software design patterns and best practices for reliability and maintainability.</p></div>
 
-  <!-- Project 2 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">Othello AI Agent</h4>
-    <p class="text-gray-400">
-      A strategic Alpha-Beta agent with deep heuristics for corner control, mobility advantage, and stability.
-      Uses smart move ordering to optimize pruning.
-    </p>
-    <a href="https://github.com/vishalm03/othello-ai-agent" class="text-blue-400 underline">View on GitHub</a>
-  </div>
-
-  <!-- Project 3 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">Racecar Agent</h4>
-    <p class="text-gray-400">
-      A reactive, rule-based AI agent using LIDAR sensor data to drive safely through a racetrack,
-      avoiding walls and making speed adjustments in real-time.
-    </p>
-    <a href="https://github.com/vishalm03/racecar-vishalm03-2" class="text-blue-400 underline">View on GitHub</a>
-  </div>
-
-  <!-- Project 4 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">Speech Accent Recognition</h4>
-    <p class="text-gray-400">
-      Built a deep learning model using CNNs and NLP techniques to classify speech accents based on audio patterns.
-      Implemented MFCC feature extraction with Librosa and optimized model performance through data augmentation
-      and hyperparameter tuning. Developed a simple interface for real-time accent detection.
-    </p>
-  </div>
-
-  <!-- Project 5 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">AI‑Enhanced Helpdesk Ticketing System</h4>
-    <p class="text-gray-400">
-      Developed an IT support system with NLP‑based ticket classification and routing. Applied generative AI
-      for intelligent recommendations and designed a CI/CD pipeline for deployment and scaling.
-      Implemented software design patterns and best practices for reliability and maintainability.
-    </p>
-  </div>
-
-  <!-- Project 6 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">Knative Serverless Deployment</h4>
-    <p class="text-gray-400">
-      Deployed microservices using Knative on Kubernetes, demonstrating traffic splitting and event‑driven
-      functions for scalable workloads.
-    </p>
-  </div>
-
-  <!-- Project 7 -->
-  <div class="mb-10">
-    <h4 class="text-2xl font-semibold">AWS SNS/SQS Messaging System</h4>
-    <p class="text-gray-400">
-      Designed and implemented an event‑driven architecture using AWS SNS and SQS for scalable and
-      reliable message processing.
-    </p>
-  </div>
-</section>
+    <h4 class="text-xl font-bold mt-8 mb-4 border-b border-gray-400 dark:border-gray-600">Cloud / DevOps Projects</h4>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">Knative Serverless Deployment</h4><p class="text-gray-700 dark:text-gray-400">Deployed microservices using Knative on Kubernetes, demonstrating traffic splitting and event‑driven functions for scalable workloads.</p></div>
+    <div class="mb-10"><h4 class="text-2xl font-semibold">AWS SNS/SQS Messaging System</h4><p class="text-gray-700 dark:text-gray-400">Designed and implemented an event‑driven architecture using AWS SNS and SQS for scalable and reliable message processing.</p></div>
+  </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-gray-800 py-16 px-6">
+  <section id="contact" class="bg-gray-200 dark:bg-gray-800 py-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
       <h3 class="text-3xl font-bold mb-4">Contact</h3>
-      <p class="text-gray-300 mb-2">📧 Email: vishal.muniraj@slu.edu</p>
-      <p class="text-gray-300 mb-2">🔗 GitHub: <a href="https://github.com/vishalm03" class="text-blue-400 underline">vishalm03</a></p>
-      <p class="text-gray-300">🔗 LinkedIn: <a href="https://www.linkedin.com/in/vishal-m-353315111/" class="text-blue-400 underline">Linkedin</a></p>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">📧 Email: vishal.muniraj@slu.edu</p>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">🔗 GitHub: <a href="https://github.com/vishalm03" class="text-blue-400 underline">vishalm03</a></p>
+      <p class="text-gray-700 dark:text-gray-300">🔗 LinkedIn: <a href="https://www.linkedin.com/in/vishal-m-353315111/" class="text-blue-400 underline">LinkedIn</a></p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 py-6 text-center text-gray-600">
+  <footer class="bg-gray-100 dark:bg-gray-900 py-6 text-center text-gray-600 dark:text-gray-400">
     © 2025 Vishal Muniraj. All rights reserved.
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const htmlBody = document.body;
+    if(localStorage.getItem('theme')==='dark'){ htmlBody.classList.add('dark'); }
+    toggleBtn.addEventListener('click', () => {
+      htmlBody.classList.toggle('dark');
+      if(htmlBody.classList.contains('dark')){ localStorage.setItem('theme','dark'); }
+      else{ localStorage.setItem('theme','light'); }
+    });
+  </script>
 </body>
 </html>
